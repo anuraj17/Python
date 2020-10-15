@@ -24,7 +24,7 @@ def Verify(data):
             exit(0)
     print("Sorting Successfull")
 
-algorithmSelector = 2
+algorithmSelector = 3
 
 #********************************1: QUICKSORT BEGINS***************************************************
 """
@@ -117,3 +117,34 @@ if (algorithmSelector == 2):
     mergeSort(mergeSortData)
     Verify(mergeSortData)
 #********************************MERGESORT ENDS***************************************************
+
+#********************************3: QUICKSORT BEGINS***************************************************
+"""
+InsertionSort:
+Compare every element with its preceding element
+Advantages:
+Disadvantages:
+Time Complexity:
+Space Complexity:
+"""
+def insertionSort(data):
+
+    for i in range(0, len(data) - 1):
+        j = i + 1
+        while j > 0:
+
+            print(j)
+            if(data[j] < data[j - 1]):
+                swap(data, j - 1, j)
+            print(data)
+            j = j - 1
+
+        
+if (algorithmSelector == 3):
+    print("Random Data")
+    printOutput(randomData)
+    insertionSortData = list(randomData)
+    insertionSort(insertionSortData)
+    Verify(insertionSortData)
+
+#********************************QUICKSORT ENDS***************************************************

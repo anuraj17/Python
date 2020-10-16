@@ -5,7 +5,7 @@ import random
 
 #Data Generator
 randomData = []
-for i in range(0, 7):
+for i in range(0, 10000):
     randomData.append(random.randint(0, 50))
 
 #Printer Function
@@ -24,7 +24,7 @@ def Verify(data):
             exit(0)
     print("Sorting Successfull")
 
-algorithmSelector = 3
+algorithmSelector = 1
 
 #********************************1: QUICKSORT BEGINS***************************************************
 """
@@ -37,7 +37,7 @@ Space Complexity:
 """
 def quickSort(data, low, high):
     if(low < high):
-        pi = quickSortPartition(data, low, high)
+        pi = quickSortPartition_Random(data, low, high)
         quickSort(data, low, pi - 1)
         quickSort(data, pi + 1, high)
 
@@ -47,7 +47,8 @@ def swap(data, i, j):
     data[j] = temp
     return data
 
-def quickSortPartition(data, low, high):
+#Choose the last element as the Pivot
+def quickSortPartition_Last(data, low, high):
     pivot = data[high]
 
     i = low - 1
@@ -59,6 +60,13 @@ def quickSortPartition(data, low, high):
     
     swap(data, i + 1, high)
     return i + 1
+
+#Choose the random element as the Pivot
+def quickSortPartition_Random(data, low, high):
+    r = random.randint(low, high)
+    swap(data, r, high)
+    return quickSortPartition_Last(data, low, high)
+
 
 if (algorithmSelector == 1):
     print("Random Data")
